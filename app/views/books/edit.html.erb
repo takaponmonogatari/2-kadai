@@ -1,0 +1,19 @@
+     <% if @book.errors.any? %>
+      <%= @book.errors.count %>error prohibited this obj from being saved:
+      <% @book.errors.full_messages.each do |message| %>
+       <%= message %>
+      <% end %>
+    <% end %>
+
+
+<h1>Editing Book</h1>
+  <%= form_with model: @book, local:true do |f| %>
+   <h6>Title</h6>
+      <%= f.text_field :title %>
+   <h6>Opinion</h6>
+       <%= f.text_area :body %>
+       <%= f.submit %>
+   <% end %>
+
+<%= link_to 'Show', @book, class: "show_#{@book.id}" %> |
+<%= link_to 'Back', books_path, class: "back" %>
